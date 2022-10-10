@@ -27,12 +27,11 @@ while True:
         hand = hands[0]
         lmList = hand['lmList']
         bbox = hand["bbox"]
-        print(bbox)
         for lm in lmList:
             data.extend([lm[0], height - lm[1], lm[2]])
         sock.sendto(str.encode(str(data)), serverAddressPort)
-    bboxData.extend([bbox[2], bbox[3]])
-    sock.sendto(str.encode(str(bboxData)), serverAddressPort2)
+        bboxData.extend([bbox[2], bbox[3]])
+        sock.sendto(str.encode(str(bboxData)), serverAddressPort2)
     
         
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
