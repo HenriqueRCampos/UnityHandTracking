@@ -3,39 +3,37 @@ from cvzone.HandTrackingModule import HandDetector
 import socket
 import time
 
-# Parameters
 width, height = 1280, 720
 
-# Webcam
 cap = cv2.VideoCapture(0)
 cap.set(3, width)
 cap.set(4, height)
 pTime = 0
 
-# Hand Detector
 detector = HandDetector(maxHands=1, detectionCon=0.5, minTrackCon=0.5)
 
-# Communication
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = ("127.0.0.1", 9999)
+serverAddressPort2 = ("127.0.0.1", 8888)
 
 while True:
-    # Get image frame from the webcam
     success, img = cap.read()
-    # Hands
     hands, img = detector.findHands(img)
 
     data = []
+    bboxData = []
 
-    # Landmark values - (x,y,z) * 21
     if hands:
-        # Get the first hand detected
         hand = hands[0]
         lmList = hand['lmList']
-        
+        bbox = hand["bbox"]
+        print(bbox)
         for lm in lmList:
             data.extend([lm[0], height - lm[1], lm[2]])
         sock.sendto(str.encode(str(data)), serverAddressPort)
+    bboxData.extend([bbox[2], bbox[3]])
+    sock.sendto(str.encode(str(bboxData)), serverAddressPort2)
+    
         
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     cTime = time.time()
