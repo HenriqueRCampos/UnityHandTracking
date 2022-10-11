@@ -15,6 +15,7 @@ detector = HandDetector(maxHands=1, detectionCon=0.5, minTrackCon=0.5)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = ("127.0.0.1", 9999)
 serverAddressPort2 = ("127.0.0.1", 8888)
+serverAddressPort3 = ("127.0.0.1", 7777)
 
 while True:
     success, img = cap.read()
@@ -22,6 +23,7 @@ while True:
 
     data = []
     bboxData = []
+    fingersData = []
 
     if hands:
         hand = hands[0]
@@ -30,8 +32,14 @@ while True:
         for lm in lmList:
             data.extend([lm[0], height - lm[1], lm[2]])
         sock.sendto(str.encode(str(data)), serverAddressPort)
+        
         bboxData.extend([bbox[2], bbox[3]])
         sock.sendto(str.encode(str(bboxData)), serverAddressPort2)
+        
+        fingers = detector.fingersUp(hand)
+        fingersData.extend([fingers[0], fingers[1], fingers[2], fingers[3], fingers[4]])
+        sock.sendto(str.encode(str(fingersData)), serverAddressPort3)
+        
     
         
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
