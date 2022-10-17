@@ -29,10 +29,7 @@ while True:
         for lm in lmList:
             data.extend([lm[0], height - lm[1], lm[2]])
         sock.sendto(str.encode(str(data)), serverAddressPort)
-<<<<<<< HEAD
 
-=======
->>>>>>> b40da9612caa67d6805c90324c1ba32879018e23
         
         fingers = detector.fingersUp(hand)
         fingersData.extend([fingers[0], fingers[1], fingers[2], fingers[3], fingers[4]])
