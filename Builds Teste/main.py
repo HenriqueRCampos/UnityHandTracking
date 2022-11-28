@@ -15,15 +15,16 @@ pTime = 0
 myColorFinder = ColorFinder(False)
 detector = HandDetector(maxHands=1, detectionCon=0.5, minTrackCon=0.5)
 
-hsvVals = {'hmin': 69, 'smin': 0, 'vmin': 239, 'hmax': 111, 'smax': 54, 'vmax': 255}
+hsvVals = {'hmin': 0, 'smin': 122, 'vmin': 159, 'hmax': 11, 'smax': 255, 'vmax': 237}
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = ("127.0.0.1", 9999)
 
 while True:
     success, img = cap.read()
     imgColor, mask = myColorFinder.update(img, hsvVals)
+    imgContour, contours = cvzone.findContours(img, mask)
     hands, img = detector.findHands(img)
-
+    
     dataList = []
 
     if hands:
@@ -43,7 +44,7 @@ while True:
     pTime = cTime
     cv2.putText(img, f'FPS:{int(fps)}', (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
      
-    imgStack = cvzone.stackImages([img, imgColor, mask], 2, 0.5)
-    cv2.imshow("Image", imgStack)
-    #img = cv2.resize(img, (0, 0), None, 0.5, 0.5)
+    #imgStack = cvzone.stackImages([imgColor, imgContour], 2, 0.5)
+    img = cv2.resize(img, (0, 0), None, 0.5, 0.5)
+    cv2.imshow("Image", img)
     cv2.waitKey(1)
