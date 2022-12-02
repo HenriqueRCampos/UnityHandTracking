@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class UDPReceiveRe : MonoBehaviour
 {
     public string dataAux;
-    public static bool Igual1;
+    public static bool handInScreen;
 
     public void Start()
     {
@@ -17,8 +17,6 @@ public class UDPReceiveRe : MonoBehaviour
         InvokeRepeating("Compara2", 0, 0.7F);
     }
 
-
-    // receive thread
     private void Compara()
     {
         dataAux =  gameObject.GetComponent<UDPReceive>().dataList;
@@ -27,12 +25,11 @@ public class UDPReceiveRe : MonoBehaviour
     {
         if (dataAux == gameObject.GetComponent<UDPReceive>().dataList)
         {
-            Igual1 = true;
+            handInScreen = false;
         }
         else
         {
-            Igual1 = false;
+            handInScreen = true;
         }
     }
-
 }

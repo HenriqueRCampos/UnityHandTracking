@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 
 public class MenuManager : MonoBehaviour
 {
-    private Animator introCameraAnimator;
     public GameObject introCamera;
     public GameObject mainCamera;
     public GameObject backGroundMenu;
@@ -19,19 +18,16 @@ public class MenuManager : MonoBehaviour
     public Animator guiaMovimentsAnimator;               
     public GameObject guiaMoviments;               
     public GameObject guiaButtonOn;                             
-    public GameObject guiaButtonOff;               
+    public GameObject guiaButtonOff;
     public List<GameObject> messagesUI;
-    private GameObject doorNameUI;
-
+    public GameObject[] doorNameUI;
+    private Animator introCameraAnimator;
     float timer = 0f;
     bool inicialState = false;
-    bool gameStart = false;
-   
+    bool gameStart = false;  
 
     private void Start()
     {
-        doorNameUI = GameObject.FindWithTag("CanvasDoorUI");
-        doorNameUI.SetActive(false);
         guiaMoviments.SetActive(false);
         guiaButtonOn.SetActive(false);
         guiaButtonOff.SetActive(false);
@@ -47,6 +43,10 @@ public class MenuManager : MonoBehaviour
     {
         if (!gameStart)
         {
+            doorNameUI[0].SetActive(false);
+            doorNameUI[1].SetActive(false);
+            doorNameUI[2].SetActive(false);
+            doorNameUI[3].SetActive(false);
             timer += Time.deltaTime;
             if (timer >= 81 && timer < 82)
             {
@@ -59,7 +59,14 @@ public class MenuManager : MonoBehaviour
             {
                 MenuReload();
             }
-        }       
+        }
+        else
+        {
+            doorNameUI[0].SetActive(true);
+            doorNameUI[1].SetActive(true);
+            doorNameUI[2].SetActive(true);
+            doorNameUI[3].SetActive(true);
+        }
         if (guiaMovimentsAnimator.GetCurrentAnimatorStateInfo(0).IsName("start") && inicialState)
         {
             guiaMoviments.SetActive(false);           
@@ -70,7 +77,6 @@ public class MenuManager : MonoBehaviour
         timer = 0f;
         gameStart = true;
         guiaButtonOn.SetActive(false);
-        doorNameUI.SetActive(true);
         guiaButtonOff.SetActive(true);
         circleTimer.SetActive(true);
         backGroundMenu.SetActive(false);
@@ -89,7 +95,6 @@ public class MenuManager : MonoBehaviour
         guiaMoviments.SetActive(false);
         guiaButtonOn.SetActive(false);
         guiaButtonOff.SetActive(false);
-        doorNameUI.SetActive(false);
         HideUImessages();
         circleTimer.SetActive(false);
         backGroundMenu.SetActive(true);
@@ -125,5 +130,9 @@ public class MenuManager : MonoBehaviour
         guiaMovimentsAnimator.SetBool("guideHide", true);
         guiaMovimentsAnimator.SetBool("guideShow", false);
     }
-    
+
+    public void FecharAplicativo()
+    {
+        Application.Quit();
+    }
 }

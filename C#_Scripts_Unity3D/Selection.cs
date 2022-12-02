@@ -15,21 +15,17 @@ public class Selection : MonoBehaviour
     public Button buttonVoltarSelecao;
     public Button buttonMenu;
     public List<GameObject> porta;
-
     public Vector3 PosCentral;
     public Vector3 posaux;
     public Vector3 Posori;
     public Vector3 PosFinal;
-
     public Animator portasAnimator;
+    public float DistanciaPoints;
     private int PortaAntProxi;
     private RaycastHit hit;
-    public float DistanciaPoints;
-
 
     void Start()
-    {
-        
+    {       
         Selecionado = null;
         Camera.main.fieldOfView = 60;
         PosCentral = porta[0].transform.position;
@@ -42,16 +38,13 @@ public class Selection : MonoBehaviour
     }
     
     void Update()
-    {
-        
+    {       
         if (Selecionado == null && porta[HandMoviments.ListaPortaIndex].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SepararPeca"))
         {
             buttonVoltarSelecao.gameObject.SetActive(false);
-            if (Input.GetMouseButtonDown(0))
-            //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetMouseButtonDown(0))
             {
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-                //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))
                 {
                     if (hit.collider.gameObject.layer == doorMovementScript.doorParts[0].layer)
                     {
@@ -59,7 +52,6 @@ public class Selection : MonoBehaviour
                         Selecionado = hit.collider.gameObject;
                         buttonVoltarSelecao.gameObject.SetActive(true);
                     }
-
                 }
             }
         }
@@ -98,14 +90,11 @@ public class Selection : MonoBehaviour
             portasAnimator.SetBool("abrirPorta", false);
             portasAnimator.SetBool("SepararPeca", false);
             portasAnimator.SetBool("juntarPeca", false);
-        }
-        
+        }       
         
         DistanciaPoints = Vector3.Distance(handTracking.handPoints[8].transform.position, handTracking.handPoints[4].transform.position);
-        //  APLICA ZOOM PELA CÂMERA
         if (HandMoviments.pinca)
         {
-
             if (DistanciaPoints >= 1.5f && Camera.main.fieldOfView > 20 && Selecionado == GameObject.FindWithTag("alizar"))
             {
                 Camera.main.fieldOfView -= Mathf.PingPong(1f, DistanciaPoints);
@@ -160,9 +149,6 @@ public class Selection : MonoBehaviour
             }
         }
 
-        //passarPorta
-
-
         if (HandMoviments.MovPassarPorta == 1)
         {
             porta[HandMoviments.ListaPortaIndex].transform.position = Posori;
@@ -199,7 +185,6 @@ public class Selection : MonoBehaviour
             {
                 if (HandMoviments.MovPassarPorta != 0 && HandMoviments.MovPassarPorta != -3 && HandMoviments.MovPassarPorta != 3)
                 {
-
                     porta[PortaAntProxi].transform.position = Vector3.MoveTowards(porta[PortaAntProxi].transform.position, posaux, 3f * Time.deltaTime);
                     porta[PortaAntProxi].transform.localScale = Vector3.MoveTowards(porta[PortaAntProxi].transform.localScale, Vector3.zero, 2f * Time.deltaTime);
                     porta[HandMoviments.ListaPortaIndex].transform.position = Vector3.MoveTowards(porta[HandMoviments.ListaPortaIndex].transform.position, PosCentral, 3f * Time.deltaTime);
@@ -212,10 +197,9 @@ public class Selection : MonoBehaviour
                         if (i != HandMoviments.ListaPortaIndex)
                         {
                             porta[i].SetActive(false);
-
                         }
                     }
-                    if (UDPReceiveRe.Igual1)
+                    if (!UDPReceiveRe.handInScreen)
                     {
                         Camera.main.GetComponent<HandMoviments>().palmaDaMao = Vector2.zero;
                     }
@@ -223,7 +207,6 @@ public class Selection : MonoBehaviour
                 }
             }
         }
-
     }
     public void ButttonBack()
     {
@@ -231,8 +214,3 @@ public class Selection : MonoBehaviour
         Selecionado = null;
     }
 }
-
-
-
-
-

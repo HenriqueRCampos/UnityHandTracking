@@ -26,6 +26,5 @@ public class DoorMovement : MonoBehaviour
                 doorParts[i].SetActive(true);
             }
         }
-    }
-    
+    }   
 }

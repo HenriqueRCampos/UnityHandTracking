@@ -7,22 +7,13 @@ using System.Linq;
 using UnityEngine.UI;
 
 public class HandTracking : MonoBehaviour
-{
-    
+{   
     public UDPReceive udpReceive;
-    public List<string> points;
-    public List<int> BboxAlturaLargura;
-    public List<int> fingersUp;
     public GameObject[] handPoints;
+    public List<int> fingersUp;
+    public List<int> BboxAlturaLargura;
+    public List<string> points;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         string data = udpReceive.dataList;
@@ -39,32 +30,20 @@ public class HandTracking : MonoBehaviour
                 points.Add(dataaux[i]);
             }
             for (int i = 63; i < 65; i++)
-            {
-              
+            {            
                BboxAlturaLargura.Add(int.Parse(dataaux[i]));
             }
             for (int i = 65; i < 70; i++)
             {
-
                 fingersUp.Add(int.Parse(dataaux[i]));
-
             }
             for (int i = 0; i < 21; i++)
             {
                 float x = 5 - float.Parse(points[i * 3]) / BboxAlturaLargura[1] * 5;
                 float y = float.Parse(points[i * 3 + 1]) / BboxAlturaLargura[1] * 5;
                 float z = float.Parse(points[i * 3 + 2]) / BboxAlturaLargura[1] * 5;
-
                 handPoints[i].transform.localPosition = new Vector3(x, y, z);
             }
         }
-
     }
-
-    public void FecharAplicativo()
-    {
-        Application.Quit();
-    }
-
 }
-

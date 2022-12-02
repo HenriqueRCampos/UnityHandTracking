@@ -8,7 +8,6 @@ using System.Linq;
 
 public class UDPReceive : MonoBehaviour
 {
-
     Thread receiveThread;
     UdpClient client;
     public int port = 9999;
@@ -16,24 +15,18 @@ public class UDPReceive : MonoBehaviour
     public bool printToConsole = false;
     public string dataList;
 
-
     public void Start()
     {
-
         receiveThread = new Thread(new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
         receiveThread.Start();
-
     }
 
     private void ReceiveData()
     {
-
         client = new UdpClient(port);
-
         while (startRecieving)
         {
-
             try
             {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
@@ -48,5 +41,4 @@ public class UDPReceive : MonoBehaviour
             }
         }
     }
-
 }

@@ -9,27 +9,18 @@ public class HandMoviments : MonoBehaviour
     public HandTracking handTracking;
     public Selection selection;
     public CameraManager cameraManager;
-
-    public static int MovPassarPorta;
+    public GameObject buttonVoltarSeleção;
+    public Image circleTimer;
     public Vector2 palmaDaMaoDireito;
     public Vector2 palmaDaMaoEsquerdo;
     public Vector2 palmaDaMao;
     public Vector2 eixoZero;
     public Vector2 eixoZeroCima;
     public Vector2 eixoZeroBaixo;
-    public GameObject buttonVoltarSeleção;
-    public Image circleTimer;
     public List<GameObject> messagesUI;
-
     public static int ListaPortaIndex;
+    public static int MovPassarPorta;
     public static int turnRotation = 0;
-
-    private bool mudar;
-    float timer;
-    float _maxTimerValue = 2f;
-
-
-    bool uiMessagesAux = false;
     public static bool pinca = false;
     public static bool rotacionar = false;
     public static bool passarPorta = false;
@@ -37,6 +28,10 @@ public class HandMoviments : MonoBehaviour
     public static bool juntarPecas = false;
     public static bool abrirPorta = false;
     public static bool fecharPorta = false;
+    private bool mudar;
+    float timer;
+    float _maxTimerValue = 2f;
+    bool uiMessagesAux = false;
 
     void Start()
     {
@@ -51,13 +46,25 @@ public class HandMoviments : MonoBehaviour
         CenterHand_PassarPorta();
     }
     
-
     void DetectionMoviments()
     {
 
-        if (!UDPReceiveRe.Igual1)
+        if (UDPReceiveRe.handInScreen)
         {
-            if (handTracking.fingersUp[0] == 1 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 0 && handTracking.fingersUp[3] == 0 && handTracking.fingersUp[4] == 0 && !rotacionar && !passarPorta && !juntarPecas && !separarPecas && !abrirPorta && !fecharPorta)
+             int fingerOne = handTracking.fingersUp[0];
+             int fingerTwo = handTracking.fingersUp[1];
+             int fingerTree = handTracking.fingersUp[2];
+             int fingerFour = handTracking.fingersUp[3];
+             int fingerFive = handTracking.fingersUp[4];
+             int up = 1;
+             int down = 0;
+            if (fingerOne == up && fingerTwo == up && fingerTree == down && fingerFour == down && fingerFive == down
+                && !rotacionar
+                && !passarPorta
+                && !juntarPecas
+                && !separarPecas
+                && !abrirPorta
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -73,8 +80,7 @@ public class HandMoviments : MonoBehaviour
                     {
                         messagesUI[1].SetActive(true);
                         HideUIMessages(1);
-                    }
-                    
+                    }                    
                 }
                 if (timer >= _maxTimerValue)
                 {
@@ -88,7 +94,13 @@ public class HandMoviments : MonoBehaviour
                 fecharPorta = false;
                 mudar = false;
             }
-            else if (handTracking.fingersUp[0] == 0 && handTracking.fingersUp[1] == 0 && handTracking.fingersUp[2] == 0 && handTracking.fingersUp[3] == 0 && handTracking.fingersUp[4] == 0 && !pinca && !passarPorta && !juntarPecas && !separarPecas && !abrirPorta && !fecharPorta)
+            else if (fingerOne == down && fingerTwo == down && fingerTree == down && fingerFour == down && fingerFive == down 
+                && !pinca 
+                && !passarPorta 
+                && !juntarPecas
+                && !separarPecas 
+                && !abrirPorta 
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -113,7 +125,13 @@ public class HandMoviments : MonoBehaviour
                 abrirPorta = false;
                 fecharPorta = false;
             }
-            else if (handTracking.fingersUp[0] == 1 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 1 && handTracking.fingersUp[3] == 1 && handTracking.fingersUp[4] == 1 && !rotacionar && !pinca && !juntarPecas && !separarPecas && !abrirPorta && !fecharPorta)
+            else if (fingerOne == up && fingerTwo == up && fingerTree == up && fingerFour == up && fingerFive == up 
+                && !rotacionar 
+                && !pinca
+                && !juntarPecas 
+                && !separarPecas 
+                && !abrirPorta 
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -136,7 +154,13 @@ public class HandMoviments : MonoBehaviour
                 fecharPorta = false;
                 mudar = false;
             }
-            else if (handTracking.fingersUp[0] == 0 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 1 && handTracking.fingersUp[3] == 0 && handTracking.fingersUp[4] == 0 && !rotacionar && !passarPorta && !juntarPecas && !pinca && !abrirPorta && !fecharPorta)
+            else if (fingerOne == down && fingerTwo == up && fingerTree == up && fingerFour == down && fingerFive == down 
+                && !rotacionar
+                && !passarPorta
+                && !juntarPecas 
+                && !pinca 
+                && !abrirPorta 
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -166,7 +190,13 @@ public class HandMoviments : MonoBehaviour
                 fecharPorta = false;
                 mudar = false;
             }
-            else if (handTracking.fingersUp[0] == 0 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 0 && handTracking.fingersUp[3] == 0 && handTracking.fingersUp[4] == 0 && !rotacionar && !passarPorta && !pinca && !separarPecas && !abrirPorta && !fecharPorta)
+            else if (fingerOne == down && fingerTwo == up && fingerTree == down && fingerFour == down && fingerFive == down 
+                && !rotacionar
+                && !passarPorta 
+                && !pinca 
+                && !separarPecas 
+                && !abrirPorta
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -196,7 +226,13 @@ public class HandMoviments : MonoBehaviour
                 fecharPorta = false;
                 mudar = false;
             }
-            else if (handTracking.fingersUp[0] == 0 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 1 && handTracking.fingersUp[3] == 1 && handTracking.fingersUp[4] == 1 && !rotacionar && !passarPorta && !pinca && !separarPecas && !juntarPecas && !fecharPorta)
+            else if (fingerOne == down && fingerTwo == up && fingerTree == up && fingerFour == up && fingerFive == up 
+                && !rotacionar 
+                && !passarPorta 
+                && !pinca 
+                && !separarPecas 
+                && !juntarPecas 
+                && !fecharPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -212,8 +248,7 @@ public class HandMoviments : MonoBehaviour
                     {
                         messagesUI[7].SetActive(true);
                         HideUIMessages(7);
-                    }
-                    
+                    }                   
                 }
                 if (timer >= _maxTimerValue)
                 {
@@ -227,7 +262,13 @@ public class HandMoviments : MonoBehaviour
                 fecharPorta = false;
                 mudar = false;
             }
-            else if (handTracking.fingersUp[0] == 0 && handTracking.fingersUp[1] == 1 && handTracking.fingersUp[2] == 1 && handTracking.fingersUp[3] == 1 && handTracking.fingersUp[4] == 0 && !rotacionar && !passarPorta && !pinca && !separarPecas && !juntarPecas && !abrirPorta)
+            else if (fingerOne == down && fingerTwo == up && fingerTree == up && fingerFour == up && fingerFive == down 
+                && !rotacionar 
+                && !passarPorta 
+                && !pinca
+                && !separarPecas 
+                && !juntarPecas
+                && !abrirPorta)
             {
                 circleTimer.fillAmount += 0.5f * Time.deltaTime;
                 timer += Time.deltaTime;
@@ -243,8 +284,7 @@ public class HandMoviments : MonoBehaviour
                     {
                         messagesUI[8].SetActive(true);
                         HideUIMessages(8);
-                    }
-                   
+                    }                   
                 }
                 if (timer >= _maxTimerValue)
                 {
@@ -275,10 +315,8 @@ public class HandMoviments : MonoBehaviour
                 palmaDaMao = Vector2.zero;
                 eixoZero = Vector2.zero;               
             }
-
         }
     }
-
 
     private void TurnRotationMov()
     {
@@ -289,8 +327,7 @@ public class HandMoviments : MonoBehaviour
                 turnRotation = 0;
             }
             mudar = true;
-        }
-       
+        }      
     }
    private void HideUIMessages(int indexMessages)
     {
@@ -305,24 +342,23 @@ public class HandMoviments : MonoBehaviour
     }
     private void ResetDoorState()
     {
+        Animator doorAnimator = selection.porta[ListaPortaIndex].GetComponent<Animator>();
         if ((Vector3.Distance(handTracking.handPoints[9].transform.position, palmaDaMaoDireito) <= 5.75f && MovPassarPorta >= 0 ||
         Vector3.Distance(handTracking.handPoints[9].transform.position, palmaDaMaoEsquerdo) <= 5.75f && MovPassarPorta <= 0) && passarPorta)
         {
-            selection.porta[ListaPortaIndex].GetComponent<Animator>().SetBool("juntarPeca", true);
-            selection.porta[ListaPortaIndex].GetComponent<Animator>().SetBool("fecharPorta", true);
-            selection.porta[ListaPortaIndex].GetComponent<Animator>().SetBool("SepararPeca", false);
-            selection.porta[ListaPortaIndex].GetComponent<Animator>().SetBool("abrirPorta", false);
+            doorAnimator.SetBool("juntarPeca", true);
+            doorAnimator.SetBool("fecharPorta", true);
+            doorAnimator.SetBool("SepararPeca", false);
+            doorAnimator.SetBool("abrirPorta", false);
             selection.ButttonBack();
             buttonVoltarSeleção.SetActive(false);
             cameraManager.rotGoal = Quaternion.LookRotation((cameraManager.midCamera.position - transform.position).normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, cameraManager.rotGoal, cameraManager.turnSpeed);
-        }
-        
+        }       
     }
 
     private void CenterHand_PassarPorta()
-    {
-        
+    {     
         if (passarPorta)
         {
             if (palmaDaMao == Vector2.zero)
@@ -347,7 +383,6 @@ public class HandMoviments : MonoBehaviour
                 }
                 if (Vector3.Distance(handTracking.handPoints[9].transform.position, palmaDaMaoEsquerdo) <= 5.75f && MovPassarPorta <= 0)
                 {
-
                     if (ListaPortaIndex < Camera.main.GetComponent<Selection>().porta.Count - 1)
                     {
                         ListaPortaIndex++;
