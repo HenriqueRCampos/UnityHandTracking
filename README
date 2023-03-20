@@ -1,16 +1,1 @@
-HOW THIS PROJECT WORKS:
-    This project make a couple between the Game Engine Unity3D using the programing language C# and too wtih Phyton. 
-    
-    The Phyton was used to get coordenats of landmarks in your hand that is captured throut a webcam.
-    This coordnates is put to a localServer that pass to an IP/PORT, UDP.
-    With this coordnates, pass a list of etch finger, informing if they are raised or lowered.
-    The library in Phyton tha make this capture is: HandTracking Module.
-    Video where I lern and follow the steps to do this:
-    
-    On Unity3D, it receive that coordnates to a Script that manipule all the date and attatch eacth point of your hand in gameObjects. 
-    In Scene of Unity, this points make the gameObjects transform they positions, building a semi-esqueleton hand type.
-    Its possible to, use the compontent "LineRenderer" on all gameObjects, seting the began and the end of this lines to the points linked them, getting a better format of hand.
-    
-    
-    
-    
+
