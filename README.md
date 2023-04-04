@@ -2,8 +2,11 @@
 Este foi o meu primeiro projeto finalizado.
 Feito para a empresa Pormade Portas, com o objetivo de utilizar em exposições de feiras.
 Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Programa de aprendizagem dentro da empresa.
-
-O projeto so possui uma resolução: 1080 x 1920
+> O projeto só possui uma resolução: 1080 x 1920
+<br>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/107483658/229909099-e4a19ace-8470-487b-bb5e-086caf1beefe.png" width=px />
+</div>
 
 ## O que foi utilizado?
 - cvzone.HandTrackingModule, uma biblioteca do Python.
