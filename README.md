@@ -32,7 +32,7 @@ diferentes gestos.
 Ex: mão fechada, mão aberta, um, dois, três dedos levantados.
 
 Um cenário criado na Unity, possui várias variações de portas, (os modelos fabricados pela empresa Pormade Portas), e com cada gesto 
-a pessoa consegue interagir com essas portas. Conseguindo fazela:
+a pessoa consegue interagir fazendo ela:
 
 - Abrir;
 - Fechar;
