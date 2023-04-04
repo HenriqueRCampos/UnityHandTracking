@@ -34,12 +34,12 @@ Ex: mão fechada, mão aberta, um, dois, três dedos levantados.
 Um cenário criado na Unity, possui várias variações de portas, (os modelos fabricados pela empresa Pormade Portas), e com cada gesto 
 a pessoa consegue interagir fazendo ela:
 
-- Abrir;
-- Fechar;
-- Separar cada peça contida na estrutura da porta;
-- Juntar essas peças;
-- Girar em torno da porta;
-- Aplicar zoom, para ver detalhes;
-- Diminuir zoom.
-- Passar para ver a proxima porta;
-- Voltar para ver a porta anterior.
+- Abrir;✋
+- Fechar;🖖
+- Separar cada peça contida na estrutura da porta;✌️
+- Juntar essas peças;☝️
+- Girar em torno da porta;✊
+- Aplicar zoom, para ver detalhes;🤏
+- Diminuir zoom.👌
+- Passar para ver a proxima porta;👋
+- Voltar para ver a porta anterior.👋
