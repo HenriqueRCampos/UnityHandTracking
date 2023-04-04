@@ -20,6 +20,10 @@ Pelo script `UDPReceive` da Unity3D é possivel receber as coordenadas da lista 
 
 Na Unity3D, os 21 pontos da sua mão são separados em 21 objetos, e cada objeto recebe a posição de 1 ponto da coordenada. Fazendo com que os objetos,
 acompanhem o movimento da sua mão em tempo real. A partir disso todos os movimentos da sua mão são mostrados com os objetos na cena da Unity3D.
+<br>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/107483658/229907275-334c27a9-7636-4ea0-8afe-19a341d76606.png" width=150px />
+</div>
 
 Após conseguir acessar todos os dados, outros scripts criados na Unity3D verificam cada movimeto e quantos dedos da sua mão estão levantados para conseguir capturar
 diferentes gestos. 
