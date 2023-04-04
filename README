@@ -1,17 +1,17 @@
-# HandTracking
+#HandTracking
 Este foi o meu primeiro projeto finalizado.
 Feito para a empresa Pormade Portas, com o objetivo de utilizar em exposições de feiras.
 Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Programa de aprendizagem dentro da empresa.
 
 O projeto so possui uma resolução: 1080 x 1920
 
-## O que foi utilizado?
+##O que foi utilizado?
 _cvzone.HandTrackingModule, uma biblioteca do Python. 
 _Unity3D.
 
 tutorial do carinha la achar no youtube
 
-# Como funciona?
+#Como funciona?
 Com a utilização de uma webcam, o script do Python rastreia a sua mão atravez do HandDetector. As cooredenadas de 21 pontos da sua mão são armazenadas em uma lista,
 junto com outra lista, que armazena quantos dedos da sua mão estão levantados.
 Tudo é passado para um servidor local criado pelo python, para que a Unity3D consiga acessar esses dados.
