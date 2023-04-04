@@ -14,11 +14,11 @@ Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Progr
 - Tutorial no youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
 
 ## Como funciona?
-Com a utilização de uma webcam, o script do Python rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
+Com a utilização de uma webcam, o script `HandTracking.py` rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
 junto com outra lista, que armazena quantos dedos da sua mão estão levantados.
 Tudo é passado para um servidor local criado pelo python, para que a Unity3D consiga acessar esses dados.
 
-> Pelo script `UDPReceive` da Unity3D é possivel receber as coordenadas da lista gerada pelo Python.
+> Pelo script `UDPReceive.cs` da Unity3D é possivel receber as coordenadas da lista gerada pelo Python.
 
 Na Unity3D, os 21 pontos da sua mão são separados em 21 objetos, e cada objeto recebe a posição de 1 ponto da coordenada. Fazendo com que os objetos
 acompanhem o movimento da sua mão em tempo real. A partir disso todos os movimentos da sua mão são mostrados com os objetos na cena da Unity3D.
