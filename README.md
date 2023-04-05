@@ -2,7 +2,7 @@
 Este foi o meu primeiro projeto finalizado.
 Feito para a empresa Pormade Portas, com o objetivo de utilizar em exposições de feiras.
 Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Programa de aprendizagem dentro da empresa.
-> O projeto só possui uma resolução: 1080 x 1920 :no_mouth:
+
 <div align="center">
 <img src="https://user-images.githubusercontent.com/107483658/229909099-e4a19ace-8470-487b-bb5e-086caf1beefe.png" width=px />
 </div>
@@ -14,11 +14,11 @@ Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Progr
 - Tutorial no Youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
 
 ## Como funciona?
-Com a utilização de uma webcam, o script `HandTracking.py` rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
+Com a utilização de uma webcam, o script [HandTracking.py](HandTracking.py) rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
 junto com outra lista, que armazena quantos dedos da sua mão estão levantados.
 Tudo é passado para um servidor local criado pelo python, para que a Unity3D consiga acessar esses dados.
 
-> Pelo script `UDPReceive.cs` da Unity3D é possivel receber as coordenadas da lista gerada pelo Python.
+> Pelo script [UDPReceive.cs](HandTracking/Assets/Scripts/UDPReceive.cs) da Unity3D é possivel receber as coordenadas da lista gerada pelo Python.
 
 Na Unity3D, os 21 pontos da sua mão são separados em 21 objetos, e cada objeto recebe a posição de 1 ponto da coordenada. Fazendo com que os objetos
 acompanhem o movimento da sua mão em tempo real. A partir disso todos os movimentos da sua mão são mostrados com os objetos na cena da Unity3D.
@@ -44,9 +44,13 @@ a pessoa consegue interagir fazendo ela:
 - Passar para ver a proxima porta;👋
 - Voltar para ver a porta anterior.👋
 
+![Vídeo sem título ‐ Feito com o Clipchamp](https://user-images.githubusercontent.com/107483658/230155974-00052dbd-2d5c-468c-a998-d330b8d49118.gif)
+
 ## Requisitos
 - Computador Desktop/Notebook com windows 10 ou maior;
 - É necessario ter o python instalado no seu computador;
 - Uma webcam;
 - Uma tela com resolução 1080 x 1920;
+> O projeto só possui uma resolução: 1080 x 1920 :no_mouth:
 
+OBS: Este repositório tem como objetivo apenas demonstrar o projeto, mas a [Build](Build.zip) esta disponivel caso queira, e atenda aos  
