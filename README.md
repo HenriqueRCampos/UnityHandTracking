@@ -11,7 +11,7 @@ Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Progr
 - cvzone.HandTrackingModule, uma biblioteca do Python.
 - Unity3D.
 
-- Tutorial no youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
+- Tutorial no Youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
 
 ## Como funciona?
 Com a utilização de uma webcam, o script `HandTracking.py` rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
@@ -43,3 +43,10 @@ a pessoa consegue interagir fazendo ela:
 - Diminuir zoom.👌
 - Passar para ver a proxima porta;👋
 - Voltar para ver a porta anterior.👋
+
+## Requisitos
+- Computador Desktop/Notebook com windows 10 ou maior;
+- É necessario ter o python instalado no seu computador;
+- Uma webcam;
+- Uma tela com resolução 1080 x 1920;
+
