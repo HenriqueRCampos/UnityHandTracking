@@ -53,4 +53,4 @@ a pessoa consegue interagir fazendo ela:
 - Uma tela com resolução 1080 x 1920;
 > O projeto só possui uma resolução: 1080 x 1920 :no_mouth:
 
-OBS: Este repositório tem como objetivo apenas demonstrar o projeto, mas a [Build](Build.zip) esta disponivel caso queira, e atenda aos  
+OBS: Este repositório tem como objetivo apenas demonstrar o projeto, mas a [Build](Build.zip) está disponivel, caso queira e atenda aos requisitos
