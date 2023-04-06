@@ -8,9 +8,9 @@ Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Progr
 </div>
 
 ## O que foi utilizado?
-- cvzone.HandTrackingModule, uma biblioteca do Python.
-- Unity3D.
-
+- Unity3D;
+- Python;
+- cvzone.HandTrackingModule, uma biblioteca do Python;
 - Tutorial no Youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
 
 ## Como funciona?
