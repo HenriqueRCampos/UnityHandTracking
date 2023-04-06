@@ -44,7 +44,7 @@ a pessoa consegue interagir fazendo ela:
 - Passar para ver a proxima porta;👋
 - Voltar para ver a porta anterior.👋
 
-![Vídeo sem título ‐ Feito com o Clipchamp](https://user-images.githubusercontent.com/107483658/230155974-00052dbd-2d5c-468c-a998-d330b8d49118.gif)
+![HTscene](https://user-images.githubusercontent.com/107483658/230400348-71677e03-5b2c-4c5f-b740-0b98e24d0328.gif)
 
 ## Requisitos
 - Computador Desktop/Notebook com windows 10 ou maior;
