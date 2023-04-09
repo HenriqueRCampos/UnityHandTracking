@@ -1,7 +1,7 @@
 # HandTracking
 Este foi o meu primeiro projeto finalizado.
 Feito para a empresa Pormade Portas, com o objetivo de utilizar em exposições de feiras.
-Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um Programa de aprendizagem dentro da empresa.
+Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um programa de aprendizagem dentro da empresa.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/107483658/229909099-e4a19ace-8470-487b-bb5e-086caf1beefe.png" width=px />
