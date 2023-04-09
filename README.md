@@ -41,7 +41,7 @@ a pessoa consegue interagir fazendo ela:
 - Girar em torno da porta;✊
 - Aplicar zoom, para ver detalhes;🤏
 - Diminuir zoom.👌
-- Passar para ver a proxima porta;👋
+- Passar para ver a próxima porta;👋
 - Voltar para ver a porta anterior.👋
 
 ![HTscene](https://user-images.githubusercontent.com/107483658/230400348-71677e03-5b2c-4c5f-b740-0b98e24d0328.gif)
