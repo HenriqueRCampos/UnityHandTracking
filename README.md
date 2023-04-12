@@ -46,6 +46,11 @@ a pessoa consegue interagir fazendo ela:
 
 ![HTscene](https://user-images.githubusercontent.com/107483658/230400348-71677e03-5b2c-4c5f-b740-0b98e24d0328.gif)
 
+## Sobre
+- As estruturas e texturas do ambiente não foram feitas por mim. Todas são assets da Unity;
+- As portas e a logo foram feitas por outro colaborador da empresa Pormade Portas;
+- A textura do quadro na parede é uma [imagem](https://aeasjc.org.br/wp-content/uploads/2021/10/fabrica-pormade-portas-uniao-da-vitoria-pr_1.jpg) da internet.
+
 ## Requisitos
 - Computador Desktop/Notebook com windows 10 ou maior;
 - É necessario ter o python instalado no seu computador;
