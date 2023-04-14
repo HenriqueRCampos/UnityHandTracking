@@ -49,7 +49,7 @@ a pessoa consegue interagir fazendo ela:
 ## Sobre
 - As estruturas e texturas do ambiente não foram feitas por mim. Todas são assets da Unity;
 - As portas e a logo foram feitas por outro colaborador da empresa Pormade Portas;
-- A textura do quadro na parede é uma [imagem](https://aeasjc.org.br/wp-content/uploads/2021/10/fabrica-pormade-portas-uniao-da-vitoria-pr_1.jpg) da internet.
+- A textura do quadro na parede está na internet: [imagem](https://aeasjc.org.br/wp-content/uploads/2021/10/fabrica-pormade-portas-uniao-da-vitoria-pr_1.jpg)
 
 ## Requisitos
 - Computador Desktop/Notebook com windows 10 ou maior;
