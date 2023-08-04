@@ -1,20 +1,20 @@
 # HandTracking
-Este foi o meu primeiro projeto finalizado.
-Feito para a empresa Pormade Portas, com o objetivo de utilizar em exposições de feiras.
-Mas acima de tudo, feito como projeto de estudo, pois foi feito durante um programa de aprendizagem dentro da empresa.
+This was my first completed project.
+Made for the company Pormade Portas, with the objective of using it in exhibitions at fairs.
+But above all, done as a study project, as it was done during a learning program within the company.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/107483658/229909099-e4a19ace-8470-487b-bb5e-086caf1beefe.png" width=px />
 </div>
 
-## O que foi utilizado?
-- Unity3D;
+## What was used?
+- Unity;
 - Python;
-- cvzone.HandTrackingModule, uma biblioteca do Python;
-- Tutorial no Youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
+- cvzone.HandTrackingModule, Python's library;
+- Tutorial on Youtube [3d Hand Tracking in Virtual Environment | Computer Vision](https://youtu.be/RQ-2JWzNc6k)
 
-## Como funciona?
-Com a utilização de uma webcam, o script [HandTracking.py](HandTracking.py) rastreia a sua mão atravez do HandDetector. As coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
+## How it works?
+With the use of a webcam, the script [HandTracking.py](HandTracking.py) tracks your hand through HandDetector. The coordenadas de 21 pontos da sua mão são armazenadas em uma lista,
 junto com outra lista, que armazena quantos dedos da sua mão estão levantados.
 Tudo é passado para um servidor local criado pelo python, para que a Unity3D consiga acessar esses dados.
 
